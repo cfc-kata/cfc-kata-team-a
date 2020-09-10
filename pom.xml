@@ -11,7 +11,7 @@
 	<groupId>com.cfckata</groupId>
 	<artifactId>loan-team-a</artifactId>
 	<version>0.0.1</version>
-	<name>loan</name>
+	<name>loan-team-a</name>
 	<description>A Java kata project</description>
 
 	<properties>
