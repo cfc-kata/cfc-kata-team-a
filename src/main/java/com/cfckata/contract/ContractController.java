@@ -47,7 +47,7 @@ public class ContractController {
     
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
-    public ContractInfoResponse createContract(@PathVariable String id) {
+    public ContractInfoResponse queryContract(@PathVariable String id) {
         ContractInfoResponse response = new ContractInfoResponse();
         
         response.setContractId("test");
