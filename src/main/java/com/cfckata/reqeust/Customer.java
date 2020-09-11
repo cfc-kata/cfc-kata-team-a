@@ -17,6 +17,15 @@ public class Customer {
     private String idnumber;
     private String mobilePhone;
 
+    
+    public Customer(String id, String name, String idnumber, String mobilePhone) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.idnumber = idnumber;
+        this.mobilePhone = mobilePhone;
+    }
+
     public String getId() {
         return id;
     }
