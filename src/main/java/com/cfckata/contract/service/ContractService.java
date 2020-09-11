@@ -9,6 +9,7 @@ package com.cfckata.contract.service;
 import java.math.BigDecimal;
 
 import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
 
 import com.cfckata.contract.domain.Contract;
 import com.cfckata.contract.domain.Customer;
@@ -19,6 +20,7 @@ import com.cfckata.contract.reqeust.CreateContractRequest;
  * @author wuming
  * @date 2020年9月11日 下午3:03:46
  */
+@Service
 public class ContractService {
 
     

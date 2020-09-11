@@ -6,6 +6,8 @@
  */
 package com.cfckata.contract;
 
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,9 +18,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cfckata.contract.common.CustomerDto;
+import com.cfckata.contract.domain.Contract;
 import com.cfckata.contract.reqeust.CreateContractRequest;
 import com.cfckata.contract.response.ContractInfoResponse;
 import com.cfckata.contract.response.CreateContractResponse;
+import com.cfckata.contract.service.ContractService;
 
 /**
  * @Description <描述>
@@ -29,6 +34,8 @@ import com.cfckata.contract.response.CreateContractResponse;
 @RequestMapping("/contracts")
 public class ContractController {
 
+    @Autowired
+    private ContractService service;
     /**
      * 创建合同
      * <描述>
@@ -42,15 +49,37 @@ public class ContractController {
     @ResponseBody
     public CreateContractResponse createContract(@RequestBody CreateContractRequest request) {
         
-        return new CreateContractResponse("123123");
+        Contract contract = service.createContract(request);
+        
+        CreateContractResponse response = new CreateContractResponse();
+       
+        
+        BeanUtils.copyProperties(contract, response);
+        
+        
+        
+        return response;
     }
     
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
     public ContractInfoResponse queryContract(@PathVariable String id) {
+        
+        Contract contract =  service.getContract(id);
+        
         ContractInfoResponse response = new ContractInfoResponse();
         
-        response.setContractId("test");
+        BeanUtils.copyProperties(contract, response);
+        
+        CustomerDto customerDto = new CustomerDto();
+        customerDto.setId(contract.getCustomer().getId());
+        customerDto.setIdnumber(contract.getCustomer().getIdnumber());
+        customerDto.setMobilePhone(contract.getCustomer().getMobilePhone());
+        customerDto.setName(contract.getCustomer().getName());
+        
+        
+        response.setCustomer(customerDto);
+        response.setContractId(contract.getContractId());
         return response;
     }
 }
