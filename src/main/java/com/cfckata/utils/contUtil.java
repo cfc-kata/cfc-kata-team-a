@@ -74,17 +74,20 @@ public class contUtil {
 		if (interestRate != null) {
 			checkRate(interestRate);
 		}
-		//2.检查期限
+		// 2.检查期限
 		if (!StringUtils.isEmpty(maturityDate)) {
 			checkMatuDate(maturityDate);
 		}
 		// 3.根据idNumber获取客户年龄
-		int age = idNoToAge(idNumber);
-		// 4.根据客户年龄获取客户级别
-		int custLevel = getCustLevel(age);
-		// 5.进行校验总额度
-		if (commitMent != null) {
-			checkCommitMent(custLevel, commitMent);
+		if (!StringUtils.isEmpty(idNumber)) {
+
+			int age = idNoToAge(idNumber);
+			// 4.根据客户年龄获取客户级别
+			int custLevel = getCustLevel(age);
+			// 5.进行校验总额度
+			if (commitMent != null) {
+				checkCommitMent(custLevel, commitMent);
+			}
 		}
 	}
 
@@ -97,14 +100,14 @@ public class contUtil {
 		int interval = getInterval(maturityDate);
 		if (QUOTA_MATUDATE < interval) {
 			log.error("年化利率超限,请检查!到期日:{},期限限额{}", maturityDate, QUOTA_MATUDATE);
-			//TODO 抛出异常
+			// TODO 抛出异常
 		}
 	}
 
 	public static void checkRate(BigDecimal interestRate) {
 		if (QUOTA_RATE.compareTo(interestRate) == -1) {
 			log.error("年化利率超限,请检查!年利率:{},年利率限额{}", interestRate, QUOTA_RATE);
-			//TODO 抛出异常
+			// TODO 抛出异常
 		}
 	}
 
@@ -147,7 +150,7 @@ public class contUtil {
 	public static void checkQuota(BigDecimal commitMent, BigDecimal quota) {
 		if (quota.compareTo(commitMent) == -1) {
 			log.error("额度超限,请检查!额度为:{},限额为:{}", commitMent, quota);
-			//TODO 抛出异常
+			// TODO 抛出异常
 		}
 	}
 
