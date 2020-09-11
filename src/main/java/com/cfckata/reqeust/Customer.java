@@ -25,6 +25,9 @@ public class Customer {
         this.idnumber = idnumber;
         this.mobilePhone = mobilePhone;
     }
+    public Customer() {
+        
+    }
 
     public String getId() {
         return id;

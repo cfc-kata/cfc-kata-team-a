@@ -29,7 +29,6 @@ public class ContractController {
     @ResponseStatus(HttpStatus.CREATED)
     public CreateContractResponse createContract(@RequestBody CreateContractRequest request) {
         
-        
         return new CreateContractResponse("123123");
     }
 }

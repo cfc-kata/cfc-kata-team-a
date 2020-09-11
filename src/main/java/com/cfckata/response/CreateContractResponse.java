@@ -15,6 +15,9 @@ public class CreateContractResponse {
 
     private String contractId;
 
+    public CreateContractResponse() {
+        
+    }
     public CreateContractResponse(String contractId) {
         super();
         this.contractId = contractId;

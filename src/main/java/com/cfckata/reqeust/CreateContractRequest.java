@@ -21,6 +21,8 @@ public class CreateContractRequest {
     private String repaymentType;
     private String maturityDate;
     private BigDecimal commitment;
+    
+    public CreateContractRequest() {};
     public CreateContractRequest(Customer customer, BigDecimal interestRate, String repaymentType, String maturityDate,
         BigDecimal commitment) {
         super();
