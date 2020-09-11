@@ -15,8 +15,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.cfckata.common.ApiTest;
+import com.cfckata.contract.common.Customer;
 import com.cfckata.contract.reqeust.CreateContractRequest;
-import com.cfckata.contract.reqeust.Customer;
+import com.cfckata.contract.response.ContractInfoResponse;
 import com.cfckata.contract.response.CreateContractResponse;
 
 /**
@@ -48,7 +49,14 @@ public class CreateContractTest extends ApiTest{
        ResponseEntity<CreateContractResponse> responseEntity =   this.restTemplate.postForEntity(baseUrl + "/contracts", request, CreateContractResponse.class);
        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.CREATED);
               
-     
     }
     
+    @Test
+    public void should_query_success_contract() {
+        String contractId="1231";
+        ResponseEntity<ContractInfoResponse> responseEntity = this.restTemplate.getForEntity(baseUrl + "/contracts/"+contractId, ContractInfoResponse.class);
+     
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+              
+    }
 }

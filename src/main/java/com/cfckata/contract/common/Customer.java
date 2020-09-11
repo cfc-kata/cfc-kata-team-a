@@ -4,7 +4,7 @@
  * @date 2020年9月11日 上午11:07:10
  * @copyright 2020 中原消费金融有限公司版权所有
  */
-package com.cfckata.contract.reqeust;
+package com.cfckata.contract.common;
 
 /**
  * @Description <描述>

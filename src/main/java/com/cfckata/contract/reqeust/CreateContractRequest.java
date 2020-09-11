@@ -8,6 +8,8 @@ package com.cfckata.contract.reqeust;
 
 import java.math.BigDecimal;
 
+import com.cfckata.contract.common.Customer;
+
 /**
  * @Description <描述>
  * @author wuming
