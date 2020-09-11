@@ -25,6 +25,7 @@ public class Contract {
     private String status;
     
       
+ 
     
     /**
      * 新合同检查
@@ -48,6 +49,90 @@ public class Contract {
         //日期检查
         
         
+    }
+
+
+
+    public String getContractId() {
+        return contractId;
+    }
+
+
+
+    public void setContractId(String contractId) {
+        this.contractId = contractId;
+    }
+
+
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+
+
+    public BigDecimal getInterestRate() {
+        return interestRate;
+    }
+
+
+
+    public void setInterestRate(BigDecimal interestRate) {
+        this.interestRate = interestRate;
+    }
+
+
+
+    public String getRepaymentType() {
+        return repaymentType;
+    }
+
+
+
+    public void setRepaymentType(String repaymentType) {
+        this.repaymentType = repaymentType;
+    }
+
+
+
+    public String getMaturityDate() {
+        return maturityDate;
+    }
+
+
+
+    public void setMaturityDate(String maturityDate) {
+        this.maturityDate = maturityDate;
+    }
+
+
+
+    public BigDecimal getCommitment() {
+        return commitment;
+    }
+
+
+
+    public void setCommitment(BigDecimal commitment) {
+        this.commitment = commitment;
+    }
+
+
+
+    public String getStatus() {
+        return status;
+    }
+
+
+
+    public void setStatus(String status) {
+        this.status = status;
     }
   
     
