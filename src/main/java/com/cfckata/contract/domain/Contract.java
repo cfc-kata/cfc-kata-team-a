@@ -26,6 +26,15 @@ public class Contract {
     
       
  
+    /**
+     * 
+     * <描述>
+     * @author wuming
+     * @date 2020年9月11日 下午3:31:42
+     */
+    public void drawingCheck() {
+        
+    }
     
     /**
      * 新合同检查

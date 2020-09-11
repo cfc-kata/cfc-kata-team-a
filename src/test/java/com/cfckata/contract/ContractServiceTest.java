@@ -34,7 +34,7 @@ public class ContractServiceTest extends SpringServiceTest{
     }
     
     @Test
-    public void should_pay_success_when_checkout_a_normal_order() {
+    public void should_create_success_contract() {
         //Given
      //   doNothing().when(payProxy).pay(anyString(), any());
 
@@ -54,5 +54,19 @@ public class ContractServiceTest extends SpringServiceTest{
        Contract contract = service.createContract(request);
 
        assertThat(contract.getContractId()).isNotNull();
+       
+    }
+    
+    
+    @Test
+    public void should_success_when_contractId() {
+        //Given
+     //   doNothing().when(payProxy).pay(anyString(), any());
+
+       String contractId = "123";
+       Contract contract = service.getContract(contractId);
+
+       assertThat(contract.getContractId()).isNotNull();
+       assertThat(contract.getCustomer().getName()).isNotNull();
     }
 }
