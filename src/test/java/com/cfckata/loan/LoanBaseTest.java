@@ -39,7 +39,7 @@ public class LoanBaseTest extends ApiTest {
 		LoanInfoEffectRequest request = new LoanInfoEffectRequest(contractId,applyAmount,totalMonth,interestRate
 				,withdrawBankAccount,repaymentBankAccount,repaymentType);
 	
-		ResponseEntity<LoanBaseInfoResponse> responseEntity = this.restTemplate.postForEntity(baseUrl + "/contracts",
+		ResponseEntity<LoanBaseInfoResponse> responseEntity = this.restTemplate.postForEntity(baseUrl + "/loans",
 				request, LoanBaseInfoResponse.class);
 		assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.CREATED);
 
