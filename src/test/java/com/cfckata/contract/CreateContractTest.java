@@ -48,7 +48,8 @@ public class CreateContractTest extends ApiTest{
        //ResponseEntity<CreateContractResponse> responseEntity = .postForEntity(baseUrl + "/contract",request);
        ResponseEntity<CreateContractResponse> responseEntity =   this.restTemplate.postForEntity(baseUrl + "/contracts", request, CreateContractResponse.class);
        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.CREATED);
-              
+             
+       assertThat(responseEntity.getBody().getContractId()).isNotNull();
     }
     
     @Test
@@ -57,6 +58,7 @@ public class CreateContractTest extends ApiTest{
         ResponseEntity<ContractInfoResponse> responseEntity = this.restTemplate.getForEntity(baseUrl + "/contracts/"+contractId, ContractInfoResponse.class);
      
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-              
+            
+        assertThat(responseEntity.getBody().getCustomer().getName()).isNotNull();
     }
 }
