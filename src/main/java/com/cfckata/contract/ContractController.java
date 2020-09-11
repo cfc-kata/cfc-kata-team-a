@@ -22,7 +22,7 @@ import com.cfckata.contract.response.CreateContractResponse;
  * @date 2020年9月11日 上午11:55:56
  */
 @RestController
-@RequestMapping("/contract")
+@RequestMapping("/contracts")
 public class ContractController {
 
     @PostMapping

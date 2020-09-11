@@ -44,12 +44,11 @@ public class CreateContractTest extends ApiTest{
         BigDecimal commitment = new BigDecimal("9000");
 
        CreateContractRequest request = new CreateContractRequest(customer, interestRate, repaymentType, maturityDate, commitment);
-       System.err.println(baseUrl + "/contract");
        //ResponseEntity<CreateContractResponse> responseEntity = .postForEntity(baseUrl + "/contract",request);
-       ResponseEntity<CreateContractResponse> responseEntity =   this.restTemplate.postForEntity(baseUrl + "/contract", request, CreateContractResponse.class);
+       ResponseEntity<CreateContractResponse> responseEntity =   this.restTemplate.postForEntity(baseUrl + "/contracts", request, CreateContractResponse.class);
        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.CREATED);
               
-       
+     
     }
     
 }
