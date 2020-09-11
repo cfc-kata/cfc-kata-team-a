@@ -1,4 +1,4 @@
-package com.cfckata.utils;
+package com.cfckata.contract.domain;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -99,15 +99,15 @@ public class contUtil {
 	public static void checkMatuDate(String maturityDate) {
 		int interval = getInterval(maturityDate);
 		if (QUOTA_MATUDATE < interval) {
-			log.error("年化利率超限,请检查!到期日:{},期限限额{}", maturityDate, QUOTA_MATUDATE);
-			// TODO 抛出异常
+			log.error("期限超限,请检查!到期日:{},期限限额{}", maturityDate, QUOTA_MATUDATE);
+			throw new CreateContractException("期限是不得超过2年");
 		}
 	}
 
 	public static void checkRate(BigDecimal interestRate) {
 		if (QUOTA_RATE.compareTo(interestRate) == -1) {
 			log.error("年化利率超限,请检查!年利率:{},年利率限额{}", interestRate, QUOTA_RATE);
-			// TODO 抛出异常
+			throw new CreateContractException("年利率不得超过36%");
 		}
 	}
 
@@ -150,7 +150,7 @@ public class contUtil {
 	public static void checkQuota(BigDecimal commitMent, BigDecimal quota) {
 		if (quota.compareTo(commitMent) == -1) {
 			log.error("额度超限,请检查!额度为:{},限额为:{}", commitMent, quota);
-			// TODO 抛出异常
+			throw new CreateContractException("最大额度超限!");
 		}
 	}
 
