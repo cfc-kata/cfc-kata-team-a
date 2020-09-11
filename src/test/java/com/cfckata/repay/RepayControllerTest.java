@@ -1,8 +1,10 @@
 package com.cfckata.repay;
 
 import org.junit.Test;
+import org.springframework.http.ResponseEntity;
 
 import com.cfckata.common.ApiTest;
+import com.cfckata.response.RepayByIdResponse;
 
 public class RepayControllerTest extends ApiTest{
 	
@@ -11,7 +13,10 @@ public class RepayControllerTest extends ApiTest{
 	public void repay_by_id_amt_lack() {
         String repayId = "TEST_ORDER";
 
-//        ResponseEntity<OrderResponse> responseEntity = this.restTemplate.getForEntity(baseUrl + "/orders/" + orderId, OrderResponse.class);
+        ResponseEntity<RepayByIdResponse> response = this.restTemplate.getForEntity(baseUrl + "/repay/repayById/" + repayId,RepayByIdResponse.class);
+        
+        
+        
 	}
 	
 	//根据还款计划ID扣款-成功场景
