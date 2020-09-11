@@ -193,7 +193,7 @@ public class contUtil {
 		int age = 0;
 		String dates = "";
 		if (leh == 18) {
-			dates = idNo.substring(6, 10);
+			dates = idNo.substring(6, 14);
 			age = getInterval(dates);
 			return age;
 		}
