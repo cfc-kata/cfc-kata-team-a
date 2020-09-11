@@ -15,9 +15,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.cfckata.common.ApiTest;
-import com.cfckata.reqeust.CreateContractRequest;
-import com.cfckata.reqeust.Customer;
-import com.cfckata.response.CreateContractResponse;
+import com.cfckata.contract.reqeust.CreateContractRequest;
+import com.cfckata.contract.reqeust.Customer;
+import com.cfckata.contract.response.CreateContractResponse;
 
 /**
  * @Description <描述>
@@ -37,7 +37,6 @@ public class CreateContractTest extends ApiTest{
         String idnumber =  "411327198609043116";
         String mobilePhone="18537118170";
         Customer customer = new Customer(id, name, idnumber, mobilePhone);
-        //Given
         
         BigDecimal interestRate = new BigDecimal("9.9");
         String repaymentType = "DEBX";
@@ -48,7 +47,6 @@ public class CreateContractTest extends ApiTest{
        System.err.println(baseUrl + "/contract");
        //ResponseEntity<CreateContractResponse> responseEntity = .postForEntity(baseUrl + "/contract",request);
        ResponseEntity<CreateContractResponse> responseEntity =   this.restTemplate.postForEntity(baseUrl + "/contract", request, CreateContractResponse.class);
-
        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.CREATED);
               
        
