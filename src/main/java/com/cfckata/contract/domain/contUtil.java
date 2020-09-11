@@ -203,13 +203,14 @@ public class contUtil {
 	 */
 	public static int getInterval(String date) {
 		SimpleDateFormat df = null;
+		int interval =0;
 		if (date.contains("-")) {
 			df = new SimpleDateFormat("yyyy-MM-dd");
 		} else {
 			df = new SimpleDateFormat("yyyyMMdd");
 		}
 		String year = df.format(new Date());
-		int interval = Integer.parseInt(year) - Integer.parseInt(date);
+//		int interval = Integer.parseInt(year) - Integer.parseInt(date);
 		return interval;
 	}
 
