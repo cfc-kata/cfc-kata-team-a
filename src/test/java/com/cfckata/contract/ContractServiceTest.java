@@ -34,7 +34,7 @@ public class ContractServiceTest extends SpringServiceTest{
     }
     
     @Test
-    public void should_create_success_contract() {
+    public void should_create_success_contract() throws Exception {
         //Given
      //   doNothing().when(payProxy).pay(anyString(), any());
 

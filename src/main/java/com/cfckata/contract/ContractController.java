@@ -43,11 +43,12 @@ public class ContractController {
      * @date 2020年9月11日 下午1:31:45 
      * @param request
      * @return 返回合同id
+     * @throws Exception 
      */
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public CreateContractResponse createContract(@RequestBody CreateContractRequest request) {
+    public CreateContractResponse createContract(@RequestBody CreateContractRequest request) throws Exception {
         
         Contract contract = service.createContract(request);
         

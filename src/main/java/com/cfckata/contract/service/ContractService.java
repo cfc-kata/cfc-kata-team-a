@@ -31,8 +31,9 @@ public class ContractService {
      * @date 2020年9月11日 下午3:32:47 
      * @param request
      * @return
+     * @throws Exception 
      */
-    public Contract createContract(CreateContractRequest request) {
+    public Contract createContract(CreateContractRequest request) throws Exception {
         /**
          * 构造合同domain
          */

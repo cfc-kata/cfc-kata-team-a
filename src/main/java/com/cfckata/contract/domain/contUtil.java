@@ -1,7 +1,9 @@
 package com.cfckata.contract.domain;
 
 import java.math.BigDecimal;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.springframework.util.StringUtils;
@@ -68,6 +70,7 @@ public class contUtil {
 	 * @param interestRate
 	 * @param maturityDate
 	 * @param commitMent
+	 * @throws Exception
 	 */
 	public static void checkCont(String idNumber, BigDecimal interestRate, String maturityDate, BigDecimal commitMent) {
 		// 1.校验年利率
@@ -95,6 +98,7 @@ public class contUtil {
 	 * 检查期限
 	 * 
 	 * @param interestRate
+	 * @throws Exception
 	 */
 	public static void checkMatuDate(String maturityDate) {
 		int interval = getInterval(maturityDate);
@@ -182,6 +186,7 @@ public class contUtil {
 	 * 
 	 * @param idNO
 	 * @return
+	 * @throws Exception
 	 */
 	public static int idNoToAge(String idNo) {
 		int leh = idNo.length();
@@ -200,18 +205,34 @@ public class contUtil {
 	 * 
 	 * @param date
 	 * @return
+	 * @throws Exception
 	 */
 	public static int getInterval(String date) {
-		SimpleDateFormat df = null;
-		int interval =0;
-		if (date.contains("-")) {
-			df = new SimpleDateFormat("yyyy-MM-dd");
-		} else {
-			df = new SimpleDateFormat("yyyyMMdd");
+		int intervalYear = 0;
+		try {
+			SimpleDateFormat df = null;
+			if (date.contains("-")) {
+				df = new SimpleDateFormat("yyyy-MM-dd");
+			} else {
+				df = new SimpleDateFormat("yyyyMMdd");
+			}
+			Date beginDate;
+			beginDate = df.parse(date);
+
+			Date endDate = new Date();
+			Calendar beginCalendar = Calendar.getInstance();
+			Calendar endCalendar = Calendar.getInstance();
+			beginCalendar.setTime(beginDate);
+			endCalendar.setTime(endDate);
+			 intervalYear = (int) getByField(beginCalendar, endCalendar, Calendar.YEAR);
+			return intervalYear;
+		} catch (Exception e) {
+			throw new CreateContractException("时间转换出错");
 		}
-		String year = df.format(new Date());
-//		int interval = Integer.parseInt(year) - Integer.parseInt(date);
-		return interval;
+	}
+
+	private static long getByField(Calendar beginCalendar, Calendar endCalendar, int calendarField) {
+		return endCalendar.get(calendarField) - beginCalendar.get(calendarField);
 	}
 
 }
