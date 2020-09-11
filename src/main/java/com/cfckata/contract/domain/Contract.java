@@ -41,12 +41,12 @@ public class Contract {
             throw new CreateContractException("年龄不符合18-70限制");
         }
         
-        //利率检查
-        if(interestRate.compareTo(new BigDecimal("36"))>0) {
-            throw new CreateContractException("利率不符合36限制");
-        }
-        
-        //日期检查
+//        if(interestRate.compareTo(new BigDecimal("36"))>0) {
+//            throw new CreateContractException("利率不符合36限制");
+//        }
+        //校验合同
+        contUtil.checkCont(customer.getIdnumber(), interestRate, maturityDate, commitment);
+       
         
         
     }
