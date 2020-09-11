@@ -44,7 +44,7 @@ public class ContractServiceTest extends SpringServiceTest{
         String mobilePhone="18537118170";
         CustomerDto customer = new CustomerDto(id, name, idnumber, mobilePhone);
         
-        BigDecimal interestRate = new BigDecimal("9.9");
+        BigDecimal interestRate = new BigDecimal("0.01");
         String repaymentType = "DEBX";
         String maturityDate = "2020-09-10";
         BigDecimal commitment = new BigDecimal("9000");
