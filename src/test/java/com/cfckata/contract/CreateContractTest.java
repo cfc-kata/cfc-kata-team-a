@@ -15,7 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.cfckata.common.ApiTest;
-import com.cfckata.contract.common.Customer;
+import com.cfckata.contract.common.CustomerDto;
 import com.cfckata.contract.reqeust.CreateContractRequest;
 import com.cfckata.contract.response.ContractInfoResponse;
 import com.cfckata.contract.response.CreateContractResponse;
@@ -37,7 +37,7 @@ public class CreateContractTest extends ApiTest{
         String name = "张三";
         String idnumber =  "411327198609043116";
         String mobilePhone="18537118170";
-        Customer customer = new Customer(id, name, idnumber, mobilePhone);
+        CustomerDto customer = new CustomerDto(id, name, idnumber, mobilePhone);
         
         BigDecimal interestRate = new BigDecimal("9.9");
         String repaymentType = "DEBX";

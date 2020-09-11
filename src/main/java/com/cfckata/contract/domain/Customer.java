@@ -4,7 +4,7 @@
  * @date 2020年9月11日 上午11:07:10
  * @copyright 2020 中原消费金融有限公司版权所有
  */
-package com.cfckata.contract.common;
+package com.cfckata.contract.domain;
 
 /**
  * @Description <描述>
@@ -61,4 +61,14 @@ public class Customer {
         this.mobilePhone = mobilePhone;
     }
 
+    /**
+     * 
+     * <描述>
+     * @author wuming
+     * @date 2020年9月11日 下午2:40:32 
+     * @return
+     */
+    public int getAge() {
+        return 25;
+    }
 }

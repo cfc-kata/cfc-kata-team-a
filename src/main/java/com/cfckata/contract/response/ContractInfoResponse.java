@@ -8,7 +8,7 @@ package com.cfckata.contract.response;
 
 import java.math.BigDecimal;
 
-import com.cfckata.contract.common.Customer;
+import com.cfckata.contract.common.CustomerDto;
 
 /**
  * @Description <描述>
@@ -17,7 +17,7 @@ import com.cfckata.contract.common.Customer;
  */
 public class ContractInfoResponse {
 
-    private Customer customer;
+    private CustomerDto customer;
     
     private BigDecimal interestRate;
     private String repaymentType;
@@ -25,10 +25,10 @@ public class ContractInfoResponse {
     private BigDecimal commitment;
     private String status;
     private String contractId;
-    public Customer getCustomer() {
+    public CustomerDto getCustomer() {
         return customer;
     }
-    public void setCustomer(Customer customer) {
+    public void setCustomer(CustomerDto customer) {
         this.customer = customer;
     }
     public BigDecimal getInterestRate() {

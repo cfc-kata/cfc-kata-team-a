@@ -8,7 +8,7 @@ package com.cfckata.contract.reqeust;
 
 import java.math.BigDecimal;
 
-import com.cfckata.contract.common.Customer;
+import com.cfckata.contract.common.CustomerDto;
 
 /**
  * @Description <描述>
@@ -18,14 +18,14 @@ import com.cfckata.contract.common.Customer;
 public class CreateContractRequest {
     
     
-    private Customer customer;
+    private CustomerDto customer;
     private BigDecimal interestRate;
     private String repaymentType;
     private String maturityDate;
     private BigDecimal commitment;
     
     public CreateContractRequest() {};
-    public CreateContractRequest(Customer customer, BigDecimal interestRate, String repaymentType, String maturityDate,
+    public CreateContractRequest(CustomerDto customer, BigDecimal interestRate, String repaymentType, String maturityDate,
         BigDecimal commitment) {
         super();
         this.customer = customer;
@@ -34,10 +34,10 @@ public class CreateContractRequest {
         this.maturityDate = maturityDate;
         this.commitment = commitment;
     }
-    public Customer getCustomer() {
+    public CustomerDto getCustomer() {
         return customer;
     }
-    public void setCustomer(Customer customer) {
+    public void setCustomer(CustomerDto customer) {
         this.customer = customer;
     }
     public BigDecimal getInterestRate() {
