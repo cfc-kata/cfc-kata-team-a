@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.cfckata.common.ApiTest;
+import com.cfckata.loan.common.RepayTypeEnum;
 import com.cfckata.loan.request.LoanInfoEffectRequest;
 import com.cfckata.loan.response.LoanBaseInfoResponse;
 
@@ -23,18 +24,18 @@ import com.cfckata.loan.response.LoanBaseInfoResponse;
  * @author ZhangYb
  * @date 2020年9月11日 下午2:51:24
  */
-public class LoanBaseTest extends ApiTest {
+public class LoanBaseControllerTest extends ApiTest {
 
 	@Test
 	public void should_create_success_contract() {
 
 		 String contractId = "11";
 		 BigDecimal applyAmount = new BigDecimal("3000");
-		 String totalMonth = "12";
+		 Integer totalMonth = 12;
 		 BigDecimal interestRate = new BigDecimal("0.1");
 		 String withdrawBankAccount = "1111";
 		 String repaymentBankAccount = "2222";
-		 String repaymentType = "DEBJ";
+		 String repaymentType = RepayTypeEnum.DEBJ.getCode();
 
 		LoanInfoEffectRequest request = new LoanInfoEffectRequest(contractId,applyAmount,totalMonth,interestRate
 				,withdrawBankAccount,repaymentBankAccount,repaymentType);

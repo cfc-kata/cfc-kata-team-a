@@ -58,7 +58,7 @@ public class LoanController {
     	}
 	   	 String contractId = request.getContractId();
 		 BigDecimal applyAmount = request.getApplyAmount();
-		 String totalMonth = request.getTotalMonth();
+		 Integer totalMonth = request.getTotalMonth();
 		 BigDecimal interestRate = request.getInterestRate();
 		 String withdrawBankAccount = request.getWithdrawBankAccount();
 		 String repaymentBankAccount = request.getRepaymentBankAccount();
@@ -68,7 +68,7 @@ public class LoanController {
 		 
 		LoanInfoDto info = new LoanInfoDto(contractId, applyAmount, totalMonth, interestRate, withdrawBankAccount,
 				repaymentBankAccount, repaymentType);
-    	String loanId = loanEffectService.doGenLoan(info);
+    	String loanId = loanEffectService.createLoan(info);
         return new LoanEffectResponse(loanId);
     }
     

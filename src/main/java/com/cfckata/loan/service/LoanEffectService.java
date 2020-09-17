@@ -6,11 +6,15 @@
  */
 package com.cfckata.loan.service;
 
-import java.math.BigDecimal;
+
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.cfckata.loan.domain.LoanDomain;
+import com.cfckata.loan.dto.LoanAndRepayPlanDto;
 import com.cfckata.loan.dto.LoanInfoDto;
+import com.cfckata.loan.dto.RepaymentPlans;
 
 /**
  * @Description <描述>
@@ -21,8 +25,23 @@ import com.cfckata.loan.dto.LoanInfoDto;
 public class LoanEffectService {
 
 	
-	public String doGenLoan(LoanInfoDto loanInfo) {
-		return "1";
+	/**
+	 * @param loanInfoDto
+	 * @return
+	 */
+	public String createLoan(LoanInfoDto loanInfoDto){
+		LoanDomain loanDomain = new LoanDomain();
+		LoanAndRepayPlanDto loanInfo = new LoanAndRepayPlanDto();
+		// 校验
+		// 借据信息
+		String loanId = loanDomain.checkLoan(loanInfoDto);
+		// 还款列表
+		List<RepaymentPlans> repaymentPlans = loanDomain.genRepayPlan(loanInfoDto);
+		loanInfo.setLoanId(loanId);
+		loanInfo.setApplyAmount(loanInfoDto.getApplyAmount());
+		loanInfo.setRepaymentPlans(repaymentPlans);
+		return loanInfo.getLoanId();
 	}
+	
 	
 }

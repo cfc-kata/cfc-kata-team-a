@@ -7,6 +7,7 @@
 package com.cfckata.loan.dto;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * @Description <描述>
@@ -15,7 +16,7 @@ import java.math.BigDecimal;
  */
 public class LoanAndRepayPlanDto {
 
-
+	private String loanId;
 	private String contractId;
 	private BigDecimal applyAmount;
 	private String totalMonth;
@@ -23,16 +24,19 @@ public class LoanAndRepayPlanDto {
 	private String withdrawBankAccount;
 	private String repaymentBankAccount;
 	private String repaymentType;
-	private RepaymentPlans repaymentPlans;
+	private List<RepaymentPlans> repaymentPlans;
 	
 	public LoanAndRepayPlanDto() {
 		super();
 	}
 	
-	public LoanAndRepayPlanDto(String contractId, BigDecimal applyAmount, String totalMonth, BigDecimal interestRate,
-			String withdrawBankAccount, String repaymentBankAccount, String repaymentType,
-			RepaymentPlans repaymentPlans) {
+
+
+	public LoanAndRepayPlanDto(String loanId, String contractId, BigDecimal applyAmount, String totalMonth,
+			BigDecimal interestRate, String withdrawBankAccount, String repaymentBankAccount, String repaymentType,
+			List<RepaymentPlans> repaymentPlans) {
 		super();
+		this.loanId = loanId;
 		this.contractId = contractId;
 		this.applyAmount = applyAmount;
 		this.totalMonth = totalMonth;
@@ -42,13 +46,33 @@ public class LoanAndRepayPlanDto {
 		this.repaymentType = repaymentType;
 		this.repaymentPlans = repaymentPlans;
 	}
+
+
+
+
 	@Override
 	public String toString() {
-		return "LoanAndRepayPlanDto [contractId=" + contractId + ", applyAmount=" + applyAmount + ", totalMonth="
-				+ totalMonth + ", interestRate=" + interestRate + ", withdrawBankAccount=" + withdrawBankAccount
-				+ ", repaymentBankAccount=" + repaymentBankAccount + ", repaymentType=" + repaymentType
-				+ ", repaymentPlans=" + repaymentPlans + "]";
+		return "LoanAndRepayPlanDto [loanId=" + loanId + ", contractId=" + contractId + ", applyAmount=" + applyAmount
+				+ ", totalMonth=" + totalMonth + ", interestRate=" + interestRate + ", withdrawBankAccount="
+				+ withdrawBankAccount + ", repaymentBankAccount=" + repaymentBankAccount + ", repaymentType="
+				+ repaymentType + ", repaymentPlans=" + repaymentPlans + "]";
 	}
+
+
+
+
+
+	public String getLoanId() {
+		return loanId;
+	}
+
+
+
+	public void setLoanId(String loanId) {
+		this.loanId = loanId;
+	}
+
+
 
 	public String getContractId() {
 		return contractId;
@@ -106,12 +130,16 @@ public class LoanAndRepayPlanDto {
 		this.repaymentType = repaymentType;
 	}
 
-	public RepaymentPlans getRepaymentPlans() {
+
+
+
+	public List<RepaymentPlans> getRepaymentPlans() {
 		return repaymentPlans;
 	}
 
-	public void setRepaymentPlans(RepaymentPlans repaymentPlans) {
+	public void setRepaymentPlans(List<RepaymentPlans> repaymentPlans) {
 		this.repaymentPlans = repaymentPlans;
 	}
+
 	
 }

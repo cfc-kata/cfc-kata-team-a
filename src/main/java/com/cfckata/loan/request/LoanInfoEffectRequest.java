@@ -17,7 +17,7 @@ public class LoanInfoEffectRequest {
 
 	private String contractId;
 	private BigDecimal applyAmount;
-	private String totalMonth;
+	private Integer totalMonth;
 	private BigDecimal interestRate;
 	private String withdrawBankAccount;
 	private String repaymentBankAccount;
@@ -34,10 +34,10 @@ public class LoanInfoEffectRequest {
 	public void setApplyAmount(BigDecimal applyAmount) {
 		this.applyAmount = applyAmount;
 	}
-	public String getTotalMonth() {
+	public Integer getTotalMonth() {
 		return totalMonth;
 	}
-	public void setTotalMonth(String totalMonth) {
+	public void setTotalMonth(Integer totalMonth) {
 		this.totalMonth = totalMonth;
 	}
 	public BigDecimal getInterestRate() {
@@ -70,7 +70,7 @@ public class LoanInfoEffectRequest {
 				+ totalMonth + ", interestRate=" + interestRate + ", withdrawBankAccount=" + withdrawBankAccount
 				+ ", repaymentBankAccount=" + repaymentBankAccount + ", repaymentType=" + repaymentType + "]";
 	}
-	public LoanInfoEffectRequest(String contractId, BigDecimal applyAmount, String totalMonth, BigDecimal interestRate,
+	public LoanInfoEffectRequest(String contractId, BigDecimal applyAmount, Integer totalMonth, BigDecimal interestRate,
 			String withdrawBankAccount, String repaymentBankAccount, String repaymentType) {
 		super();
 		this.contractId = contractId;

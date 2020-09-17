@@ -7,6 +7,7 @@
 package com.cfckata.loan.response;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import com.cfckata.loan.dto.RepaymentPlans;
 
@@ -24,16 +25,17 @@ public class LoanBaseInfoResponse {
 	private String withdrawBankAccount;
 	private String repaymentBankAccount;
 	private String repaymentType;
-	private RepaymentPlans repaymentPlans;
+	private List<RepaymentPlans> repaymentPlans;
 	
 	
 	
 	public LoanBaseInfoResponse() {
 		super();
 	}
+	
 	public LoanBaseInfoResponse(String contractId, BigDecimal applyAmount, String totalMonth, BigDecimal interestRate,
 			String withdrawBankAccount, String repaymentBankAccount, String repaymentType,
-			RepaymentPlans repaymentPlans) {
+			List<RepaymentPlans> repaymentPlans) {
 		super();
 		this.contractId = contractId;
 		this.applyAmount = applyAmount;
@@ -44,6 +46,9 @@ public class LoanBaseInfoResponse {
 		this.repaymentType = repaymentType;
 		this.repaymentPlans = repaymentPlans;
 	}
+
+
+
 	public String getContractId() {
 		return contractId;
 	}
@@ -86,12 +91,15 @@ public class LoanBaseInfoResponse {
 	public void setRepaymentType(String repaymentType) {
 		this.repaymentType = repaymentType;
 	}
-	public RepaymentPlans getRepaymentPlans() {
+
+	public List<RepaymentPlans> getRepaymentPlans() {
 		return repaymentPlans;
 	}
-	public void setRepaymentPlans(RepaymentPlans repaymentPlans) {
+
+	public void setRepaymentPlans(List<RepaymentPlans> repaymentPlans) {
 		this.repaymentPlans = repaymentPlans;
 	}
+
 	@Override
 	public String toString() {
 		return "LoanBaseInfoResponse [contractId=" + contractId + ", applyAmount=" + applyAmount + ", totalMonth="
