@@ -10,7 +10,7 @@ import com.cfckata.loan.dto.LoanInfoDto;
 @Repository
 public interface LoanInfoMapper {
 
-	int addBatch(LoanInfoDto loanInfoDto);
+	int add(LoanInfoDto loanInfoDto);
 	
 	LoanInfoDto selectByLoanId(String loanId);
 }

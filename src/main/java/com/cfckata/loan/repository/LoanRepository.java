@@ -1,5 +1,7 @@
 package com.cfckata.loan.repository;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -16,7 +18,9 @@ public class LoanRepository {
 	@Autowired
 	private RepayPlanMapper repayPlanMapper;
 
-	public void save() {
+	public void save(LoanInfoDto loanInfoDto) {
+		loanInfoDto.setId("123");
+		loanInfoMapper.add(loanInfoDto);
 
 	}
 

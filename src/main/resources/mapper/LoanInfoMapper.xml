@@ -8,10 +8,20 @@
   <sql id="Base_Column_List">
     id, loanId
   </sql>
-  <select id="selectByLoanId" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from loan_info
-    where loanId = #{loanId,jdbcType=VARCHAR}
-  </select>
+	<select id="selectByLoanId" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from loan_info
+		where loanId = #{loanId,jdbcType=VARCHAR}
+	</select>
+	<insert id="add">
+		INSERT INTO loan_info
+		(
+		<include refid="Base_Column_List" />
+		)
+		VALUES
+		(#{id}, #{loanId})
+	</insert>
+  
 </mapper>
